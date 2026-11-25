@@ -1,8 +1,10 @@
 export type MapPoint = {
   id: string;
   label: string;
-  x: number; // 0–100, position on the map
-  y: number; // 0–100
+  lat: number;
+  lng: number;
+  /** Side of the pin where the label is shown (to avoid overlapping labels). */
+  labelDir?: "left" | "right" | "top" | "bottom";
 };
 
 export type Course = {
@@ -36,9 +38,10 @@ export type Office = {
   name: string;
   address: string;
   area: string;
-  x: number;
-  y: number;
+  lat: number;
+  lng: number;
   walkIn: boolean;
+  labelDir?: MapPoint["labelDir"];
   avoid?: string;
 };
 
@@ -49,8 +52,8 @@ export type EventItem = {
   date: string; // ISO date (yyyy-mm-dd)
   time: string;
   place: string;
-  x: number;
-  y: number;
+  lat: number;
+  lng: number;
   price: string;
   description: string;
   weekend?: "this" | "next"; // filled in by the mock API

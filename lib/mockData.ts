@@ -1,20 +1,22 @@
 // All data below is mock data for the prototype – there is no real backend.
 import type { Accommodation, Course, EventItem, MapPoint, Office } from "./types";
 
-/* ---------- Campus (Nova FCT, Caparica) ---------- */
+/* ---------- Campus (Nova FCT, Caparica) – building positions are approximate ---------- */
 
-export const campusBuildings: (MapPoint & { w: number; h: number })[] = [
-  { id: "ed1", label: "Ed. I", x: 40, y: 50, w: 14, h: 10 },
-  { id: "ed2", label: "Ed. II", x: 70, y: 62, w: 12, h: 14 },
-  { id: "ed4", label: "Ed. IV", x: 22, y: 12, w: 10, h: 8 },
-  { id: "ed7", label: "Ed. VII", x: 38, y: 74, w: 14, h: 12 },
-  { id: "ed8", label: "Ed. VIII", x: 22, y: 74, w: 8, h: 14 },
-  { id: "ed9", label: "Ed. IX", x: 10, y: 74, w: 8, h: 14 },
-  { id: "ed10", label: "Ed. X", x: 58, y: 76, w: 8, h: 12 },
-  { id: "library", label: "Library", x: 56, y: 28, w: 18, h: 8 },
-  { id: "canteen", label: "Canteen", x: 62, y: 46, w: 14, h: 8 },
-  { id: "dep", label: "Dep.", x: 8, y: 30, w: 8, h: 18 },
-  { id: "sea", label: "SEA", x: 40, y: 34, w: 10, h: 8 },
+export const CAMPUS = { lat: 38.6610, lng: -9.2048 };
+
+export const campusBuildings: MapPoint[] = [
+  { id: "ed1", label: "Ed. I", lat: 38.6612, lng: -9.2052 },
+  { id: "ed2", label: "Ed. II", lat: 38.6606, lng: -9.203 },
+  { id: "ed4", label: "Ed. IV", lat: 38.6631, lng: -9.2066 },
+  { id: "ed7", label: "Ed. VII", lat: 38.6597, lng: -9.2047 },
+  { id: "ed8", label: "Ed. VIII", lat: 38.6594, lng: -9.2059 },
+  { id: "ed9", label: "Ed. IX", lat: 38.6591, lng: -9.207 },
+  { id: "ed10", label: "Ed. X", lat: 38.6599, lng: -9.2035 },
+  { id: "library", label: "Library", lat: 38.6619, lng: -9.2046 },
+  { id: "canteen", label: "Canteen", lat: 38.6612, lng: -9.2038 },
+  { id: "dep", label: "Dep.", lat: 38.6621, lng: -9.2075 },
+  { id: "sea", label: "SEA", lat: 38.662, lng: -9.2057 },
 ];
 
 export const courses: Course[] = [
@@ -37,13 +39,13 @@ export const courses: Course[] = [
 /* ---------- Lisbon (schematic map) ---------- */
 
 export const lisbonAreas: (MapPoint & { info: string; safety: string; priceLevel: string; commute: string })[] = [
-  { id: "almada", label: "Almada", x: 44, y: 64, info: "Right next to the campus, quieter and cheaper than Lisbon centre.", safety: "Safe", priceLevel: "€", commute: "15–25 min (tram MTS)" },
-  { id: "caparica", label: "Caparica", x: 22, y: 84, info: "Closest to Nova FCT and the beach. Few shops, quiet at night.", safety: "Safe", priceLevel: "€", commute: "5–10 min" },
-  { id: "baixa", label: "Baixa / Chiado", x: 50, y: 36, info: "Historic centre, lively and touristy, expensive.", safety: "Mostly safe, watch for pickpockets", priceLevel: "€€€", commute: "40–50 min (ferry + tram)" },
-  { id: "bairro-alto", label: "Bairro Alto", x: 42, y: 32, info: "Nightlife district, can be loud at night.", safety: "OK, busy at night", priceLevel: "€€", commute: "45–55 min" },
-  { id: "alfama", label: "Alfama", x: 60, y: 30, info: "Old town with narrow streets and many short-term rentals.", safety: "Mostly safe", priceLevel: "€€", commute: "45–55 min" },
-  { id: "arroios", label: "Arroios", x: 56, y: 18, info: "Popular with students, many shared flats.", safety: "Safe", priceLevel: "€€", commute: "50–60 min (metro + ferry)" },
-  { id: "odivelas", label: "Odivelas", x: 46, y: 6, info: "North of Lisbon, cheaper but long commute.", safety: "Safe", priceLevel: "€", commute: "70+ min" },
+  { id: "almada", label: "Almada", lat: 38.679, lng: -9.1569, info: "Right next to the campus, quieter and cheaper than Lisbon centre.", safety: "Safe", priceLevel: "€", commute: "15–25 min (tram MTS)" },
+  { id: "caparica", label: "Caparica", lat: 38.664, lng: -9.201, info: "Closest to Nova FCT and the beach. Few shops, quiet at night.", safety: "Safe", priceLevel: "€", commute: "5–10 min" },
+  { id: "baixa", labelDir: "bottom", label: "Baixa / Chiado", lat: 38.711, lng: -9.139, info: "Historic centre, lively and touristy, expensive.", safety: "Mostly safe, watch for pickpockets", priceLevel: "€€€", commute: "40–50 min (ferry + tram)" },
+  { id: "bairro-alto", labelDir: "left", label: "Bairro Alto", lat: 38.7135, lng: -9.146, info: "Nightlife district, can be loud at night.", safety: "OK, busy at night", priceLevel: "€€", commute: "45–55 min" },
+  { id: "alfama", labelDir: "right", label: "Alfama", lat: 38.7118, lng: -9.13, info: "Old town with narrow streets and many short-term rentals.", safety: "Mostly safe", priceLevel: "€€", commute: "45–55 min" },
+  { id: "arroios", label: "Arroios", lat: 38.733, lng: -9.135, info: "Popular with students, many shared flats.", safety: "Safe", priceLevel: "€€", commute: "50–60 min (metro + ferry)" },
+  { id: "odivelas", label: "Odivelas", lat: 38.793, lng: -9.183, info: "North of Lisbon, cheaper but long commute.", safety: "Safe", priceLevel: "€", commute: "70+ min" },
 ];
 
 export const accommodations: Accommodation[] = [
@@ -82,17 +84,17 @@ export const contractChecklist = [
 /* ---------- NIF ---------- */
 
 export const offices: Office[] = [
-  { id: "o8", name: "Finanças Lisboa 8", address: "Rua Morais Soares 64 (mock)", area: "arroios", x: 58, y: 20, walkIn: true },
-  { id: "o6", name: "Finanças Lisboa 6", address: "Av. Infante Santo 2 (mock)", area: "bairro-alto", x: 36, y: 38, walkIn: true },
-  { id: "o4", name: "Finanças Lisboa 4", address: "Rua do Comércio 12 (mock)", area: "baixa", x: 52, y: 38, walkIn: true },
-  { id: "oa", name: "Finanças Almada 1", address: "Praça São João Baptista (mock)", area: "almada", x: 46, y: 60, walkIn: true },
-  { id: "o1", name: "Finanças Lisboa 1", address: "Rua Castilho 5 (mock)", area: "arroios", x: 48, y: 22, walkIn: false, avoid: "Very long queues, usually fully booked." },
-  { id: "o3", name: "Finanças Lisboa 3", address: "Rua de Alfama 20 (mock)", area: "alfama", x: 62, y: 32, walkIn: false, avoid: "Often refuses foreign students without appointment." },
+  { id: "o8", name: "Finanças Lisboa 8", address: "Rua Morais Soares 64 (mock)", area: "arroios", lat: 38.737, lng: -9.133, walkIn: true },
+  { id: "o6", labelDir: "left", name: "Finanças Lisboa 6", address: "Av. Infante Santo 2 (mock)", area: "bairro-alto", lat: 38.709, lng: -9.164, walkIn: true },
+  { id: "o4", labelDir: "bottom", name: "Finanças Lisboa 4", address: "Rua do Comércio 12 (mock)", area: "baixa", lat: 38.709, lng: -9.1365, walkIn: true },
+  { id: "oa", name: "Finanças Almada 1", address: "Praça São João Baptista (mock)", area: "almada", lat: 38.6795, lng: -9.158, walkIn: true },
+  { id: "o1", labelDir: "left", name: "Finanças Lisboa 1", address: "Rua Castilho 5 (mock)", area: "arroios", lat: 38.723, lng: -9.155, walkIn: false, avoid: "Very long queues, usually fully booked." },
+  { id: "o3", labelDir: "right", name: "Finanças Lisboa 3", address: "Rua de Alfama 20 (mock)", area: "alfama", lat: 38.7122, lng: -9.129, walkIn: false, avoid: "Often refuses foreign students without appointment." },
 ];
 
 export const naveganteOffices: MapPoint[] = [
-  { id: "n1", label: "Metropolitano de Lisboa – Marquês de Pombal", x: 46, y: 26 },
-  { id: "n2", label: "Metropolitano de Lisboa – Cais do Sodré", x: 46, y: 40 },
+  { id: "n1", label: "Metropolitano de Lisboa – Marquês de Pombal", lat: 38.7253, lng: -9.15 },
+  { id: "n2", label: "Metropolitano de Lisboa – Cais do Sodré", lat: 38.706, lng: -9.1445 },
 ];
 
 /* ---------- Events (dates are relative to today, so “next weekend” always works) ---------- */
@@ -118,14 +120,14 @@ export function buildEvents(today = new Date()): EventItem[] {
   const thisWeekend = [iso(sat), iso(sat, 1)];
   const nextWeekend = [iso(sat, 7), iso(sat, 8)];
   const list: EventItem[] = [
-    { id: "e1", title: "Erasmus Welcome Gathering", organizer: "Nova FCT", date: iso(sat), time: "17:00", place: "Nova FCT Campus – Canteen", x: 22, y: 82, price: "Free", description: "Meet other exchange students, snacks and drinks provided by the International Office." },
-    { id: "e2", title: "Guided City Tour – Old Lisbon", organizer: "ESN", date: iso(sat), time: "10:00", place: "Praça do Comércio", x: 52, y: 38, price: "5 €", description: "2-hour walking tour through Baixa, Chiado and Alfama with a local guide. Slow pace, accessible route." },
-    { id: "e3", title: "Picnic at Caparica Beach", organizer: "ESN", date: iso(sat, 1), time: "12:00", place: "Costa da Caparica", x: 14, y: 76, price: "Free", description: "Bring food to share, games and beach volleyball." },
-    { id: "e4", title: "Get to Know Lisbon – Quiz Night", organizer: "ESN", date: iso(sat, -2), time: "21:00", place: "Bairro Alto", x: 42, y: 32, price: "3 €", description: "Pub quiz about Portugal in mixed teams." },
-    { id: "e5", title: "Nova FCT Sports Day", organizer: "Nova FCT", date: iso(sat, 7), time: "10:00", place: "Nova FCT Sports Hall", x: 26, y: 86, price: "Free", description: "Football, basketball and volleyball tournaments for all students." },
-    { id: "e6", title: "Fado Evening", organizer: "Other", date: iso(sat, 7), time: "20:30", place: "Alfama", x: 60, y: 30, price: "15 €", description: "Traditional Portuguese music in a small tavern." },
-    { id: "e7", title: "Day Trip to Sintra", organizer: "ESN", date: iso(sat, 8), time: "08:30", place: "Rossio Station", x: 50, y: 34, price: "25 €", description: "Visit palaces and gardens of Sintra. Train tickets included." },
-    { id: "e8", title: "Language Exchange Tandem", organizer: "Nova FCT", date: iso(sat, 3), time: "18:00", place: "Nova FCT Library", x: 24, y: 80, price: "Free", description: "Practice Portuguese and help locals with your language." },
+    { id: "e1", title: "Erasmus Welcome Gathering", organizer: "Nova FCT", date: iso(sat), time: "17:00", place: "Nova FCT Campus – Canteen", lat: 38.6612, lng: -9.2038, price: "Free", description: "Meet other exchange students, snacks and drinks provided by the International Office." },
+    { id: "e2", title: "Guided City Tour – Old Lisbon", organizer: "ESN", date: iso(sat), time: "10:00", place: "Praça do Comércio", lat: 38.7075, lng: -9.1365, price: "5 €", description: "2-hour walking tour through Baixa, Chiado and Alfama with a local guide. Slow pace, accessible route." },
+    { id: "e3", title: "Picnic at Caparica Beach", organizer: "ESN", date: iso(sat, 1), time: "12:00", place: "Costa da Caparica", lat: 38.643, lng: -9.238, price: "Free", description: "Bring food to share, games and beach volleyball." },
+    { id: "e4", title: "Get to Know Lisbon – Quiz Night", organizer: "ESN", date: iso(sat, -2), time: "21:00", place: "Bairro Alto", lat: 38.7135, lng: -9.146, price: "3 €", description: "Pub quiz about Portugal in mixed teams." },
+    { id: "e5", title: "Nova FCT Sports Day", organizer: "Nova FCT", date: iso(sat, 7), time: "10:00", place: "Nova FCT Sports Hall", lat: 38.6627, lng: -9.2028, price: "Free", description: "Football, basketball and volleyball tournaments for all students." },
+    { id: "e6", title: "Fado Evening", organizer: "Other", date: iso(sat, 7), time: "20:30", place: "Alfama", lat: 38.7118, lng: -9.13, price: "15 €", description: "Traditional Portuguese music in a small tavern." },
+    { id: "e7", title: "Day Trip to Sintra", organizer: "ESN", date: iso(sat, 8), time: "08:30", place: "Rossio Station", lat: 38.7142, lng: -9.141, price: "25 €", description: "Visit palaces and gardens of Sintra. Train tickets included." },
+    { id: "e8", title: "Language Exchange Tandem", organizer: "Nova FCT", date: iso(sat, 3), time: "18:00", place: "Nova FCT Library", lat: 38.6619, lng: -9.2046, price: "Free", description: "Practice Portuguese and help locals with your language." },
   ];
   return list.map((e) => ({
     ...e,

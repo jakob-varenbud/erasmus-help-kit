@@ -85,5 +85,11 @@ export function useReviews() {
     setOwn([{ ...review, id: `own-${now.getTime()}`, date }, ...own]);
   };
 
-  return { forTarget, average, add };
+  /** How many reviewers were happy (4–5 stars) – used to compare accommodations. */
+  const happiness = (id: string) => {
+    const list = forTarget(id);
+    return { happy: list.filter((x) => x.rating >= 4).length, total: list.length };
+  };
+
+  return { forTarget, average, add, happiness };
 }
